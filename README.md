@@ -1,4 +1,6 @@
-# Employee Review Analyzer
+# Employee Review Classifier
+
+[Employee Review Classifier](https://employeesreviewsclassifier.streamlit.app/)
 
 Comparing pretrained Hugging Face models on Glassdoor employee reviews: sentiment (negative / neutral / positive) and zero-shot issue classification, with a Streamlit app.
 
