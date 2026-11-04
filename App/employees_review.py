@@ -8,13 +8,14 @@ def load_models():
     issue = pipeline("zero-shot-classification", model="typeform/distilbert-base-uncased-mnli")
     return sent, issue
 
-sent, issue = load_models()
 ISSUES = ["management", "pay", "work-life balance", "career growth", "culture"]
 
 st.title("Employee Review Analyzer")
 review = st.text_area("Paste an employee review")
 
 if st.button("Analyze") and review.strip():
+    with st.spinner("Loading models (the first run takes a few minutes)..."):
+        sent, issue = load_models()
     s = sent(review)[0]
     i = issue(review, candidate_labels=ISSUES)
     st.write(f"**Sentiment:** {s['label']} ({s['score']:.2f})")
